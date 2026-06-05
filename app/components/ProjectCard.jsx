@@ -31,17 +31,17 @@ export default function ProjectCard({ title, description, highlights, techStack,
         className="glass-card rounded-xl overflow-hidden group border border-white/5 hover:border-primary/40 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full bg-surface/40 hover:bg-surface/60 hover:shadow-2xl hover:shadow-primary/5 cursor-pointer"
       >
         <div className="h-24 bg-slate-800/80 relative overflow-hidden flex items-center justify-center">
-           <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent mix-blend-overlay z-10 opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
-           <span className="text-slate-400 font-medium tracking-widest uppercase z-0 text-[10px] flex items-center gap-2 group-hover:text-primary transition-colors">
-             Click to Expand
-           </span>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent mix-blend-overlay z-10 opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <span className="text-slate-400 font-medium tracking-widest uppercase z-0 text-[10px] flex items-center gap-2 group-hover:text-primary transition-colors">
+            Click to Expand
+          </span>
         </div>
 
         <div className="p-5 flex flex-col flex-grow">
           <h3 className="text-lg font-bold text-slate-100 mb-2 font-heading group-hover:text-primary transition-colors line-clamp-1">
             {title}
           </h3>
-          
+
           <p className="text-slate-400 mb-4 leading-relaxed text-xs line-clamp-3">
             {description}
           </p>
@@ -71,28 +71,28 @@ export default function ProjectCard({ title, description, highlights, techStack,
       <AnimatePresence>
         {isOpen && (
           <div className="fixed inset-0 z-[100] overflow-y-auto flex justify-center items-start pt-10 pb-10 sm:pt-20 sm:pb-20 px-4">
-            
-            {/* Dark background overlay */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+
+            {/* ✅ FIX 1: Plain div for backdrop visual blur — pointer-events-none so it NEVER intercepts clicks */}
+            <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm pointer-events-none" />
+
+            {/* ✅ FIX 2: Separate plain div just for closing — sits behind modal via z-index */}
+            <div
+              className="fixed inset-0 cursor-pointer z-[1]"
               onClick={() => setIsOpen(false)}
-              className="fixed inset-0 bg-slate-950/80 backdrop-blur-sm cursor-pointer"
             />
 
-            {/* Modal Content Card — removed stopPropagation from here */}
+            {/* ✅ FIX 3: Modal card — z-[2] so it's always above the close zone */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ type: "spring", duration: 0.5 }}
-              className="relative w-full max-w-2xl bg-slate-900 border border-white/10 rounded-2xl shadow-2xl z-10 p-6 sm:p-8 mt-auto mb-auto"
+              className="relative w-full max-w-2xl bg-slate-900 border border-white/10 rounded-2xl shadow-2xl z-[2] p-6 sm:p-8 mt-auto mb-auto"
             >
               {/* Close Button */}
-              <button 
+              <button
                 onClick={() => setIsOpen(false)}
-                className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-colors z-20"
+                className="absolute top-4 right-4 p-2 text-slate-400 hover:text-white hover:bg-white/10 rounded-full transition-colors"
               >
                 <X size={20} />
               </button>
@@ -100,7 +100,7 @@ export default function ProjectCard({ title, description, highlights, techStack,
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-100 mb-4 font-heading pr-8">
                 {title}
               </h3>
-              
+
               <p className="text-slate-300 mb-6 leading-relaxed text-sm sm:text-base">
                 {description}
               </p>
@@ -151,29 +151,23 @@ export default function ProjectCard({ title, description, highlights, techStack,
                 </div>
               </div>
 
-              {/* Action Buttons — stopPropagation moved here to fix click blocking */}
-              <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/10 relative">
+              {/* ✅ FIX 4: Buttons use window.open — most reliable method across all browsers */}
+              <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/10">
                 {liveUrl && (
-                  <a 
-                    href={liveUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-hover text-slate-900 font-bold rounded-lg transition-colors text-sm"
+                  <button
+                    onClick={() => window.open(liveUrl, "_blank", "noopener,noreferrer")}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary-hover text-slate-900 font-bold rounded-lg transition-colors text-sm cursor-pointer"
                   >
                     View Live Project <ArrowUpRight size={16} />
-                  </a>
+                  </button>
                 )}
                 {githubUrl && (
-                  <a 
-                    href={githubUrl} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    onClick={(e) => e.stopPropagation()}
-                    className="flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-white/10 rounded-lg transition-colors text-sm"
+                  <button
+                    onClick={() => window.open(githubUrl, "_blank", "noopener,noreferrer")}
+                    className="flex items-center gap-2 px-5 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 border border-white/10 rounded-lg transition-colors text-sm cursor-pointer"
                   >
                     Source Code <Github size={16} />
-                  </a>
+                  </button>
                 )}
               </div>
             </motion.div>

@@ -52,13 +52,6 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          
-          <a
-            href="#contact"
-            className="btn-primary ml-4 text-sm py-2.5 px-5"
-          >
-            Hire Me
-          </a>
         </nav>
 
         <button
