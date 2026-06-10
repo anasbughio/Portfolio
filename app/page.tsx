@@ -209,7 +209,7 @@ export default function Home() {
             <div className="relative w-full h-full rounded-[2rem] overflow-hidden glass-card border-white/10 p-2 transform transition-transform duration-500 hover:rotate-1 hover:scale-105">
               <div className="relative w-full h-full rounded-3xl overflow-hidden bg-surface">
                 <Image
-                  src="/anas.jfif"
+                  src="/anas.jpg"
                   alt="Anas Bughio"
                   fill
                   className="object-cover"
