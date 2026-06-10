@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const sora = Sora({ subsets: ["latin"], variable: "--font-sora" });
 
 export const metadata: Metadata = {
-  title: "Fahad Hamza Minhas | Full-Stack MERN & Next.js Developer",
-  description: "Portfolio of Fahad Hamza Minhas, a Web Developer specializing in the MERN stack, Next.js, and AI integrations.",
+  title: "Anas Bughio | MERN Stack & CMS Developer",
+  description: "Portfolio of Anas Bughio, a MERN Stack Developer and CMS Developer specializing in Shopify, WordPress, Webflow, and DevOps.",
 };
 
 export default function RootLayout({

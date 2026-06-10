@@ -26,9 +26,11 @@ const skills = [
   "TypeScript",
   "Tailwind CSS",
   "REST APIs",
-  "Python",
-  "Deep Learning",
-  "YOLOv11",
+  "Shopify",
+  "WordPress",
+  "Webflow",
+  "Docker",
+  "AWS",
   "Git/GitHub",
 ];
 
@@ -59,20 +61,6 @@ const projects = [
     githubUrl: "https://github.com/minhasfahad/medvision-ai",
   },
   {
-    title: "Enterprise CRM System",
-    description:
-      "A scalable Customer Relationship Management platform designed to streamline business operations and team coordination.",
-    notice: "",
-    highlights: [
-      "Implemented secure JWT authentication and role-based access control.",
-      "Developed comprehensive full CRUD operations for lead and client data.",
-      "Designed a responsive, real-time data tracking dashboard.",
-    ],
-    techStack: ["MongoDB", "Express.js", "React", "Node.js", "JWT"],
-    liveUrl: "https://crm-full-stack-app-no-auth.vercel.app/",
-    githubUrl: "https://github.com/minhasfahad/CRM_Full_Stack_App_NO_AUTH",
-  },
-  {
     title: "Luxury Timepiece Store",
     description:
       "A premium e-commerce experience built on Shopify. Designed to provide a seamless, responsive shopping experience tailored for high-end luxury watches.",
@@ -99,6 +87,34 @@ const projects = [
     techStack: ["Webflow", "Figma", "UI/UX Development"],
     liveUrl: "https://we-know-training.webflow.io/",
     githubUrl: "", // <-- ADD THIS LINE
+  },
+  {
+    title: "Serenity AI — Digital Mental Health Companion",
+    description:
+      "A full-stack AI-powered mental health platform providing personalized emotional support, mood tracking, guided exercises, smart journaling, and AI-generated wellness insights.",
+    notice: "",
+    highlights: [
+      "AI Chat Companion powered by Google Gemini AI for personalized emotional support.",
+      "Comprehensive mood tracking with analytics and trend visualization.",
+      "Smart journal with AI reflections and sentiment analysis.",
+      "Goals tracker with progress visualization and guided exercises.",
+      "Sleep tracker with mood correlation charts and wellness scores.",
+      "AI-generated weekly mental health reports and crisis resources.",
+      "Secure JWT authentication with HTTP-only cookies and push notifications.",
+      "Deployed on AWS with Docker containerization and CI/CD pipelines.",
+    ],
+    techStack: [
+      "React 18",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Google Gemini AI",
+      "Docker",
+      "AWS",
+      "JWT",
+    ],
+    liveUrl: "",
+    githubUrl: "https://github.com/anasbughio/mental-health-platform.git",
   },
 ];
 
@@ -137,7 +153,7 @@ export default function Home() {
             >
               Hi, I&apos;m{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-300">
-                Fahad Minhas
+                Anas Bughio
               </span>
               .<br />I build things for the web.
             </motion.h1>
@@ -148,9 +164,10 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-base sm:text-lg lg:text-xl text-slate-400 max-w-2xl mb-8 md:mb-10 leading-relaxed px-4 md:px-0"
             >
-              I&apos;m a Full-Stack Developer focused on creating highly
-              performant, scalable, and beautifully designed web applications
-              using the MERN stack and Next.js.
+              I&apos;m a MERN Stack Developer and CMS Developer specializing in
+              Shopify, WordPress, and Webflow. I create highly performant,
+              scalable web applications and digital experiences. Currently exploring
+              DevOps and cloud infrastructure.
             </motion.p>
 
             <motion.div
@@ -166,7 +183,7 @@ export default function Home() {
                 <Mail size={18} /> Get In Touch
               </a>
               <a
-                href="/resume.pdf"
+                href="/Anas_Bughio_Resume (1).pdf"
                 target="_blank"
                 className="flex items-center justify-center gap-2 px-6 py-3 glass-card hover:border-primary/30 rounded-lg text-slate-300 hover:text-primary transition-all duration-300 text-sm sm:text-base w-full sm:w-auto"
               >
@@ -192,8 +209,8 @@ export default function Home() {
             <div className="relative w-full h-full rounded-[2rem] overflow-hidden glass-card border-white/10 p-2 transform transition-transform duration-500 hover:rotate-1 hover:scale-105">
               <div className="relative w-full h-full rounded-3xl overflow-hidden bg-surface">
                 <Image
-                  src="/profile.png"
-                  alt="Fahad Minhas"
+                  src="/anas.jfif"
+                  alt="Anas Bughio"
                   fill
                   className="object-cover"
                   priority
@@ -222,28 +239,23 @@ export default function Home() {
               className="space-y-6 text-slate-400 leading-relaxed"
             >
               <p>
-                I am a final-year BS Computer Science student at the University
-                of Management and Technology (UMT) in Lahore. My professional
-                drive is centered squarely on{" "}
+                I am a MERN Stack Developer and CMS Developer with expertise in
                 <strong className="text-slate-200">
-                  Full-Stack Web Development
+                  {" "}Shopify, WordPress, and Webflow
                 </strong>
-                , with a deep specialization in the MERN stack and Next.js.
+                . I specialize in building scalable full-stack web applications
+                and creating seamless digital experiences across multiple platforms.
               </p>
               <p>
-                Currently, I&apos;m working as a Web Development Internee,
-                building a variety of digital experiences across platforms like
-                WordPress, Shopify, and Webflow. Concurrently, I&apos;m
-                architecting a complex Next.js & TypeScript application for my
-                final year project.
+                I have hands-on experience developing with React, Node.js, MongoDB,
+                Express.js, and Next.js. Beyond frontend and backend development,
+                I&apos;m expanding my skill set into DevOps and cloud infrastructure,
+                working with Docker, AWS services, and deployment pipelines.
               </p>
               <p>
-                While my primary engineering focus is the web, I also have a
-                strong technical foundation in AI and Computer Vision (working
-                with Python and YOLO models). I&apos;m a strong
-                communicator—having recently completed an English Immersion
-                course—and I thrive on bridging complex backend systems with
-                intuitive, modern frontends.
+                I&apos;m passionate about creating performant, user-centric applications
+                and bridging the gap between design and complex backend systems. My goal
+                is to deliver high-quality digital solutions that make an impact.
               </p>
             </motion.div>
 
@@ -345,7 +357,7 @@ export default function Home() {
                   </div>
 
                   <h3 className="text-xl md:text-2xl font-bold text-slate-200 mb-1 font-heading">
-                    Web Development Internee
+                    Web Developer
                   </h3>
                   {/* UPDATE THIS WITH YOUR COMPANY NAME! */}
                   <h4 className="text-slate-400 font-medium mb-6 text-sm md:text-base">
@@ -430,7 +442,7 @@ export default function Home() {
 
             <div className="flex flex-col items-center mb-16">
               <a
-                href="https://mail.google.com/mail/?view=cm&to=hafizfahad099@gmail.com&su=Portfolio%20Inquiry:%20Let's%20Connect!"
+                href="https://mail.google.com/mail/?view=cm&to=anasbughio@gmail.com&su=Portfolio%20Inquiry:%20Let's%20Connect!"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 bg-slate-100 hover:bg-white text-slate-900 font-bold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:-translate-y-1 mb-4"
@@ -442,7 +454,7 @@ export default function Home() {
               <p className="text-slate-500 text-sm">
                 or email directly at{" "}
                 <span className="text-slate-300 select-all">
-                  hafizfahad099@gmail.com
+                  anasbughio@gmail.com
                 </span>
               </p>
             </div>
@@ -454,7 +466,7 @@ export default function Home() {
               </span>
               <div className="flex items-center gap-6">
                 <a
-                  href="https://github.com/minhasfahad/"
+                  href="https://github.com/anasbughio"
                   target="_blank"
                   rel="noreferrer"
                   className="p-3 glass-card rounded-full text-slate-400 hover:text-primary hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"
@@ -462,7 +474,7 @@ export default function Home() {
                   <Github size={24} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/fahad-hamza-minhas/"
+                  href="https://www.linkedin.com/in/anas-bughio/"
                   target="_blank"
                   rel="noreferrer"
                   className="p-3 glass-card rounded-full text-slate-400 hover:text-primary hover:border-primary/30 transition-all duration-300 hover:-translate-y-1"

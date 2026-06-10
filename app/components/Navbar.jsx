@@ -38,7 +38,7 @@ export default function Navbar() {
             <Code2 size={18} className="text-white" strokeWidth={2.5} />
           </div>
           <span className="font-bold text-slate-200 text-lg tracking-tight" style={{ fontFamily: "Sora, sans-serif" }}>
-            Fahad<span className="text-teal-400">.</span>
+            Anas<span className="text-teal-400">.</span>
           </span>
         </a>
 
